@@ -31,8 +31,15 @@ export const useOrder = () => {
         }
     };
 
+    const removeItem = (id: MenuItems['id']) => {
+        //Filtramos los items que no coincidan con el id que queremos eliminar y los guardamos en el estado
+        const removeItem = order.filter((orderItem) => orderItem.id !== id);
+        setOrder(removeItem);
+    };
+
     return {
         order,
         addItemList,
+        removeItem
     }
 };

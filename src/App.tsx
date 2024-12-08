@@ -1,16 +1,17 @@
 
+import OrderContents from "./components/OrderContents";
 import MenuItems from "./components/MenuItems";
 import { useOrder } from "./hooks/useOrder";
 import { menuItems } from "./data/db"
-import OrderContents from "./components/OrderContents";
+import OrderTotal from "./components/OrderTotal";
 
 function App() {
 
-  const { order, addItemList } = useOrder();
+  const { order, addItemList, removeItem } = useOrder();
 
   return (
     <>
-      <header className="bg-teal-400 py-5 px-4">
+      <header className="bg-indigo-300 py-5 px-4">
         <h1 className="text-center text-4xl font-black">Calculadora de Propia y Consumo</h1>
       </header>
 
@@ -28,8 +29,16 @@ function App() {
           </div>
         </div>
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
-        
-        <OrderContents order={order}/>
+
+          <OrderContents
+            order={order}
+            removeItem={removeItem}
+          />
+
+          <OrderTotal
+            order={order}
+          />
+
         </div>
       </main>
     </>
