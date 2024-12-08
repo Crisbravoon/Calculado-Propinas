@@ -9,7 +9,7 @@ type OrderContentsProps = {
 const OrderContents = ({ order, removeItem }: OrderContentsProps) => {
     return (
         <div>
-            <h2 className="font-black text-4xl">Consumo</h2>
+            <h2 className="font-black text-4xl">Consumo 🧾</h2>
             <div className="space-y-3 mt-10">
                 {order.map((item) =>
                     <div

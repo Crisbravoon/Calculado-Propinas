@@ -12,13 +12,13 @@ function App() {
 
   return (
     <>
-      <header className="bg-indigo-300 py-5 px-4">
-        <h1 className="text-center text-4xl font-black">Calculadora de Propia y Consumo</h1>
+      <header className="bg-indigo-700 py-5 px-4">
+        <h1 className="text-center text-4xl font-medium text-white"> 💰 Calculadora de Propia y Consumo 💰</h1>
       </header>
 
       <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
         <div className="p-5">
-          <h2 className="text-3xl font-black">Menú</h2>
+          <h2 className="text-3xl font-black"> 🍽️ Menú </h2>
           <div className="space-y-3 mt-10">
             {
               menuItems.map(item => (
