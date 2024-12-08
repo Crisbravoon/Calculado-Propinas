@@ -4,10 +4,11 @@ import MenuItems from "./components/MenuItems";
 import { useOrder } from "./hooks/useOrder";
 import { menuItems } from "./data/db"
 import OrderTotal from "./components/OrderTotal";
+import TipPercentageForm from "./components/TipPercentageForm";
 
 function App() {
 
-  const { order, addItemList, removeItem } = useOrder();
+  const { order, addItemList, removeItem, tip, setTip, placeOrder } = useOrder();
 
   return (
     <>
@@ -29,15 +30,26 @@ function App() {
           </div>
         </div>
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
+          {order.length > 0 ? (
+            <>
+              <OrderContents
+                order={order}
+                removeItem={removeItem}
+              />
+              <TipPercentageForm
+                setTip={setTip}
+                tip={tip} />
 
-          <OrderContents
-            order={order}
-            removeItem={removeItem}
-          />
+              <OrderTotal
+                order={order}
+                tip={tip}
+                placeOrder={placeOrder}
+              />
 
-          <OrderTotal
-            order={order}
-          />
+            </>
+          ) : (
+            <h2 className="text-xl font-black text-center">Seleccione del menú para agregarlo a su orden.</h2>
+          )}
 
         </div>
       </main>
